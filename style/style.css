@@ -3,7 +3,7 @@ body {
   font-size: 15px;
 }
 .card {
-  margin: 40px;
+  margin: 40px 40px 20px;
   background: #c7d9ea;
   color: white;
   background-image: linear-gradient(
@@ -64,11 +64,12 @@ span.smallText {
   color: rgba(208, 211, 216, 0.9);
 }
 .coder {
-  font-size: 12px;
+  font-size: 14px;
   position: relative;
   left: 140px;
 }
 a:-webkit-any-link {
   color: #0099ff;
   cursor: pointer;
+  text-decoration: none;
 }
