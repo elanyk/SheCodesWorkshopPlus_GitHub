@@ -15,7 +15,10 @@ body {
   border-radius: 20px;
   border-color: #9cacbb;
   width: 100%;
-  max-width: 800px;
+  max-width: 700px;
+}
+.search-form {
+  width: 200px;
 }
 .hour {
   display: inline;
@@ -35,18 +38,18 @@ body {
   text-transform: capitalize;
 }
 .units {
-  font-size: 25px;
+  font-size: 23px;
 }
 #temperature-c {
   text-decoration: none;
-  color: rgb(171, 231, 255);
+  color: rgb(150, 250, 255);
 }
 #temperature-f {
   text-decoration: none;
-  color: rgb(150, 250, 255);
+  color: rgb(171, 231, 255);
 }
 .bottomBox {
-  padding: 60px 0 0;
+  padding: 40px 0 0;
   align-items: center;
   justify-content: center;
 }
@@ -56,17 +59,23 @@ body {
   justify-content: center;
   text-align: center;
 }
+.currentTemp {
+  font-size: 38px;
+}
 span {
-  color: rgba(208, 211, 216, 0.9);
+  color: rgba(230, 232, 235, 0.9);
 }
 span.smallText {
   font-size: 12px;
-  color: rgba(208, 211, 216, 0.9);
 }
 .coder {
   font-size: 14px;
   position: relative;
-  left: 140px;
+  left: 60px;
+}
+.container {
+  max-width: 700px;
+  margin: 0 auto;
 }
 a:-webkit-any-link {
   color: #0099ff;
