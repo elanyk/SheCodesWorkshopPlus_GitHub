@@ -36,7 +36,10 @@
               Time:
               <span class="hour">12:00</span>
             </div>
-            <div class="description">Cloudy</div>
+            <div class="details">
+              Humidity: <span id="humidity"></span>%
+              <div>Wind: <span id="wind"></span>m/h</div>
+            </div>
             <span class="units"
               ><a href="#" id="temperature-c">°C </a>|
               <a href="#" id="temperature-f">°F</a></span
@@ -48,7 +51,9 @@
               alt="clouds"
               width="150"
               class="icon"
+              id="main-icon"
             />
+            <div class="description">Cloudy</div>
           </div>
           <div class="col">
             <form class="search-form" id="search-form">
@@ -56,7 +61,7 @@
                 <input
                   type="text"
                   class="form-control p-2"
-                  placeholder="Search city..."
+                  placeholder="Type a city..."
                   autocomplete="off"
                   id="city-input"
                 />
@@ -86,7 +91,12 @@
               <span class="today">Today</span>
               <h1 class="currentTemp">28°C</h1>
 
-              <img src="images/cloudy.png" width="35" class="mediumIcon" />
+              <img
+                src="images/cloudy.png"
+                width="35"
+                class="mediumIcon"
+                id="medium-icon"
+              />
             </div>
             <div class="col">
               <span class="smallText">Mon</span>

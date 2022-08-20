@@ -37,8 +37,19 @@ body {
 #current-city:first-letter {
   text-transform: capitalize;
 }
+.description {
+  font-size: large;
+  text-align: center;
+  margin: 5px 0 0;
+}
+
+#wind,
+#humidity {
+  color: white;
+}
 .units {
   font-size: 23px;
+  padding: 6px 0;
 }
 #temperature-c {
   text-decoration: none;
@@ -49,7 +60,7 @@ body {
   color: rgb(171, 231, 255);
 }
 .bottomBox {
-  padding: 40px 0 0;
+  padding: 28px 0 0;
   align-items: center;
   justify-content: center;
 }
@@ -61,12 +72,21 @@ body {
 }
 .currentTemp {
   font-size: 38px;
+  margin: 0;
 }
 span {
   color: rgba(230, 232, 235, 0.9);
 }
 span.smallText {
   font-size: 12px;
+}
+#main-icon {
+  background-color: rgba(20, 95, 144, 0.1);
+  border-radius: 20px;
+  padding: 2px;
+  width: 130px;
+  position: relative;
+  left: 28px;
 }
 .coder {
   font-size: 14px;
