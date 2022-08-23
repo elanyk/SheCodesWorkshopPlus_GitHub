@@ -8,18 +8,31 @@ body {
   color: white;
   background-image: linear-gradient(
     to bottom,
-    rgb(162, 191, 221) 30%,
-    rgb(120, 149, 178) 90%
+    rgba(47, 177, 181, 0.7) 20%,
+    rgba(94, 126, 159, 0.9) 95%
   );
-  padding: 20px;
+  padding: 40px;
   border-radius: 20px;
   border-color: #9cacbb;
   width: 100%;
   max-width: 700px;
 }
 .search-form {
-  width: 200px;
+  width: 203px;
 }
+.searchBlank {
+  position: relative;
+  left: 7px;
+}
+.searchButton {
+  position: relative;
+  left: 6.7px;
+}
+.currentButton {
+  position: relative;
+  left: 2px;
+}
+
 .hour {
   display: inline;
   color: white;
@@ -49,7 +62,8 @@ body {
 }
 .units {
   font-size: 23px;
-  padding: 6px 0;
+  position: relative;
+  bottom: -5px;
 }
 #temperature-c {
   text-decoration: none;
@@ -59,27 +73,6 @@ body {
   text-decoration: none;
   color: rgb(171, 231, 255);
 }
-.bottomBox {
-  padding: 28px 0 0;
-  align-items: center;
-  justify-content: center;
-}
-.bottomBox .row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.currentTemp {
-  font-size: 38px;
-  margin: 0;
-}
-span {
-  color: rgba(230, 232, 235, 0.9);
-}
-span.smallText {
-  font-size: 12px;
-}
 #main-icon {
   background-color: rgba(20, 95, 144, 0.1);
   border-radius: 20px;
@@ -88,17 +81,58 @@ span.smallText {
   position: relative;
   left: 28px;
 }
-.coder {
-  font-size: 14px;
+.bottomBox {
+  padding: 28px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 700px;
+}
+.todayWeather {
+  padding: 0 50px 0 4px;
   position: relative;
-  left: 60px;
+  bottom: -5px;
+}
+.today {
+  opacity: 0.7;
+  position: relative;
+  bottom: -10px;
+}
+.currentTemp {
+  font-size: 45px;
+  margin: 0;
+  position: relative;
+  bottom: -10px;
+}
+.weather-forecast {
+  width: 700px;
+}
+.weather-forecast-date {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.6;
+  font-size: 15px;
+}
+
+.weather-forecast-temperatures {
+  font-size: 17px;
+}
+
+.coder {
+  font-size: 12px;
+  position: relative;
+  bottom: -25px;
 }
 .container {
   max-width: 700px;
   margin: 0 auto;
 }
 a:-webkit-any-link {
-  color: #0099ff;
+  color: #80ccff;
   cursor: pointer;
   text-decoration: none;
 }

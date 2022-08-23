@@ -29,6 +29,56 @@ let month = now.getMonth() + 1;
 let currentMonth = document.querySelector(".currentMonth");
 currentMonth.innerHTML = `${month}/${date}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        <img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> ${Math.round(
+            forecastDay.temp.max
+          )}° </span>
+          <span class="weather-forecast-temperature-min"> ${Math.round(
+            forecastDay.temp.min
+          )}° </span>
+        </div>
+      </div>
+  `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  forecastTemp = forecast;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "87decab18fdbadc303073ab774f7f5df";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function searchCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input");
@@ -66,6 +116,7 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   mediumIconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 
 function showCity(response) {
@@ -92,11 +143,43 @@ function clickFahrenheit(event) {
   let currentTemperature = document.querySelector(".currentTemp");
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   currentTemperature.innerHTML = `${Math.round(fahrenheitTemp)}°F`;
+  let forecastTemperatureMax = document.getElementsByClassName(
+    "weather-forecast-temperature-max"
+  );
+  for (i = 0; i < 5; i++) {
+    forecastTemperatureMax[i].innerHTML = `${Math.round(
+      (forecastTemp[i].temp.max * 9) / 5 + 32
+    )}º`;
+  }
+  let forecastTemperatureMin = document.getElementsByClassName(
+    "weather-forecast-temperature-min"
+  );
+  for (i = 0; i < 5; i++) {
+    forecastTemperatureMin[i].innerHTML = `${Math.round(
+      (forecastTemp[i].temp.min * 9) / 5 + 32
+    )}º`;
+  }
 }
 function clickCelsius(event) {
   event.preventDefault();
   let currentTemperature = document.querySelector(".currentTemp");
   currentTemperature.innerHTML = `${Math.round(celsiusTemp)}°C`;
+  let forecastTemperatureMax = document.getElementsByClassName(
+    "weather-forecast-temperature-max"
+  );
+  for (i = 0; i < 5; i++) {
+    forecastTemperatureMax[i].innerHTML = `${Math.round(
+      forecastTemp[i].temp.max
+    )}º`;
+  }
+  let forecastTemperatureMin = document.getElementsByClassName(
+    "weather-forecast-temperature-min"
+  );
+  for (i = 0; i < 5; i++) {
+    forecastTemperatureMin[i].innerHTML = `${Math.round(
+      forecastTemp[i].temp.min
+    )}º`;
+  }
 }
 
 let fahrenheitLink = document.querySelector("#temperature-f");
@@ -115,3 +198,20 @@ searchButton.addEventListener("click", searchCity);
 
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", localization);
+
+function search(city) {
+  let apiKey = "87decab18fdbadc303073ab774f7f5df";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+search("Kyiv");

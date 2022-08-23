@@ -19,7 +19,6 @@
       src="https://kit.fontawesome.com/afc2a5a936.js"
       crossorigin="anonymous"
     ></script>
-
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
@@ -28,7 +27,7 @@
       <div class="card">
         <div class="row align-items-start">
           <div class="col">
-            <h2 id="current-city">New York</h2>
+            <h2 id="current-city">Kyiv</h2>
             <div class="currentDay">Sunday</div>
             <span class="currentMonth">07/09</span>
 
@@ -60,7 +59,7 @@
               <div class="input-group">
                 <input
                   type="text"
-                  class="form-control p-2"
+                  class="form-control p-2 ps-2 searchBlank"
                   placeholder="Type a city..."
                   autocomplete="off"
                   id="city-input"
@@ -86,54 +85,28 @@
           </div>
         </div>
         <section class="bottomBox">
-          <div class="row">
-            <div class="col">
-              <span class="today">Today</span>
-              <h1 class="currentTemp">28°C</h1>
+          <div class="todayWeather">
+            <span class="today">Today</span>
+            <h1 class="currentTemp">28°C</h1>
 
-              <img
-                src="images/cloudy.png"
-                width="35"
-                class="mediumIcon"
-                id="medium-icon"
-              />
-            </div>
-            <div class="col">
-              <span class="smallText">Mon</span>
-              <h5 class="temp">27°C</h5>
-              <img src="images/cloudy_rainy.png" width="23" class="smallIcon" />
-            </div>
-            <div class="col">
-              <span class="smallText">Tue</span>
-              <h5 class="temp">25°C</h5>
-              <img src="images/thunder.png" width="23" class="smallIcon" />
-            </div>
-            <div class="col">
-              <span class="smallText">Wed</span>
-              <h5 class="temp">27°C</h5>
-              <img src="images/rainy_sunny.png" width="23" class="smallIcon" />
-            </div>
-            <div class="col">
-              <span class="smallText">Thu</span>
-              <h5 class="temp">27°C</h5>
-              <img src="images/cloudy.png" width="23" class="smallIcon" />
-            </div>
-            <div class="col">
-              <span class="smallText">Fri</span>
-              <h5 class="temp">29°C</h5>
-              <img src="images/sunny.png" width="23" class="smallIcon" />
-            </div>
+            <img
+              src="images/cloudy.png"
+              width="55"
+              class="mediumIcon"
+              id="medium-icon"
+            />
           </div>
+          <div class="weather-forecast" id="forecast"></div>
         </section>
-      </div>
-      <div class="coder">
-        <a
-          href="https://github.com/elanyk/SheCodesWorkshopPlus_GitHub"
-          target="_blank"
-        >
-          Open-source code by
-        </a>
-        Elvira Nykyforuk
+        <div class="coder">
+          <a
+            href="https://github.com/elanyk/SheCodesWorkshopPlus_GitHub"
+            target="_blank"
+          >
+            Open-source code by
+          </a>
+          Elvira Nykyforuk
+        </div>
       </div>
     </div>
     <script src="src/script.js"></script>
